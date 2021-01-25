@@ -1,0 +1,17 @@
+{
+  "type": "mysql",
+  "host": "127.0.0.1",
+  "port": 33060,
+  "username": "root",
+  "password": "secret",
+  "database": "account",
+  "extra": { "insecureAuth": true },
+  "logging": true,
+  "synchronize": false,
+  "entities": [
+    "dist/infraestructure/persistence/mysql/entities/*.js"
+  ],
+  "cache": {
+    "duration": 30000
+  }
+}

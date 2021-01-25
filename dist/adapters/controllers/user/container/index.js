@@ -1,0 +1,21 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateUserById = exports.deleteUserById = exports.saveUser = exports.getUSerById = exports.getAllUsers = void 0;
+var getAllUSers_1 = require("../../../../application/modules/user/useCases/getAllUSers");
+var getById_1 = require("../../../../application/modules/user/useCases/getById");
+var saveUser_1 = require("../../../../application/modules/user/useCases/saveUser");
+var deleteUserById_1 = require("../../../../application/modules/user/useCases/deleteUserById");
+var updateUserById_1 = require("../../../../application/modules/user/useCases/updateUserById");
+var user_repository_1 = require("../../../../infraestructure/repositories/mysql/user.repository");
+var userRepository = new user_repository_1.UserRepository();
+var getAllUsers = new getAllUSers_1.UseCaseGetAllUsers(userRepository);
+exports.getAllUsers = getAllUsers;
+var getUSerById = new getById_1.UseCaseGetUSerById(userRepository);
+exports.getUSerById = getUSerById;
+var saveUser = new saveUser_1.UseCaseUserSave(userRepository);
+exports.saveUser = saveUser;
+var deleteUserById = new deleteUserById_1.UseCaseDeleteUserById(userRepository);
+exports.deleteUserById = deleteUserById;
+var updateUserById = new updateUserById_1.UseCaseUserUpdateById(userRepository);
+exports.updateUserById = updateUserById;
+//# sourceMappingURL=index.js.map

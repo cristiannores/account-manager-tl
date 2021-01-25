@@ -1,0 +1,35 @@
+{
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "**/*.spec.ts"
+  ],
+  "compilerOptions": {
+    "lib": [
+      "es6"
+    ],
+    "types": [
+      "reflect-metadata",
+      "node"
+    ],
+    "pretty": true,
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "./types"
+    ],
+  }
+}

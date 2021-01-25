@@ -1,0 +1,15 @@
+
+import * as esLocal from "./es.local.json";
+import * as enLocal from "./en.local.json";
+
+import * as localKeys from "./keys.json";
+
+const locals = {
+    es: esLocal,
+    en: enLocal,
+};
+
+const resourceKeys = localKeys;
+
+
+export { resourceKeys };

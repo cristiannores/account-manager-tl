@@ -1,0 +1,36 @@
+{
+  "name": "account",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm r dotenv/config; ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typeorm": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.json",
+    "build": "rimraf ./build &&  tsc "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.9",
+    "class-transformer": "^0.3.2",
+    "class-validator": "^0.13.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "reflect-metadata": "0.1.13",
+    "ts-node": "^9.1.1",
+    "tsc": "^1.20150623.0",
+    "typeorm": "^0.2.30"
+  },
+  "devDependencies": {
+    "@types/node": "13.13.4",
+    "rimraf": "3.0.2",
+    "ts-node": "8.10.2",
+    "typescript": "^4.1.3"
+  }
+}
