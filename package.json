@@ -1,16 +1,17 @@
 {
-  "name": "account",
+  "name": "account-manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "Account manager for TerapiaLuz reservation system",
   "main": "index.js",
   "scripts": {
     "start": "npm r dotenv/config; ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "typeorm": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.json",
-    "build": "rimraf ./build &&  tsc "
+    "build": "rimraf ./build &&  tsc ",
+    "up-db" : "docker-compose -f sql/docker-compose.yml up -d"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cristian Nores",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.9",
