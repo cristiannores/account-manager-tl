@@ -3,7 +3,7 @@
 -- Host: 127.0.0.1    Database: account
 -- ------------------------------------------------------
 -- Server version	8.0.22
-
+use account;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -34,7 +34,7 @@ CREATE TABLE `access_modules` (
   PRIMARY KEY (`idaccess_modules`),
   KEY `fk_access_modules_role1_idx` (`role_idrole`),
   CONSTRAINT `fk_access_modules_role1` FOREIGN KEY (`role_idrole`) REFERENCES `role` (`idrole`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `login` (
   PRIMARY KEY (`idlogin`,`user_iduser`),
   KEY `fk_login_user_idx` (`user_iduser`),
   CONSTRAINT `fk_login_user` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `migrations` (
   `timestamp` bigint NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ CREATE TABLE `role` (
   `updated_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `deleted_date` datetime DEFAULT NULL,
   PRIMARY KEY (`idrole`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `user` (
   `update_date` datetime DEFAULT NULL,
   `deleted_date` datetime DEFAULT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `user_has_role` (
   KEY `fk_user_has_role_user1_idx` (`user_iduser`),
   CONSTRAINT `fk_user_has_role_role1` FOREIGN KEY (`role_idrole`) REFERENCES `role` (`idrole`),
   CONSTRAINT `fk_user_has_role_user1` FOREIGN KEY (`user_iduser`) REFERENCES `user` (`iduser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
