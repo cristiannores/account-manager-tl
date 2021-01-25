@@ -3,9 +3,7 @@ import {ResultUseCase} from "../../../../shared/result/ResultUseCase";
 import {User} from "../../../../../infraestructure/persistence/mysql/entities/User";
 import { plainToClass } from 'class-transformer';
 import {UserDto} from "../../dtos/User.dto";
-import {validate, ValidationError} from "class-validator";
 import {UserRepository} from "../../../../../infraestructure/repositories/mysql/user.repository";
-import {ValidatorInterface} from "../../../../shared/validator/ValidatorInterface";
 import {Validator} from "../../../../shared/validator/Validator";
 
 export class UseCaseUserUpdateById extends BaseUseCase {
@@ -26,7 +24,7 @@ export class UseCaseUserUpdateById extends BaseUseCase {
 
         const result = new ResultUseCase<User>();
 
-        if (isValid.status) {
+        if (!isValid.status) {
             result.SetError({message: "Can`t update user ", data: isValid.errors}, 400);
             return result;
         }

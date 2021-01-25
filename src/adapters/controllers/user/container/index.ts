@@ -11,7 +11,7 @@ const validator  = new Validator()
 
 const getAllUsers = new UseCaseGetAllUsers(userRepository);
 const getUSerById = new UseCaseGetUSerById(userRepository);
-const saveUser = new UseCaseUserSave(userRepository);
+const saveUser = new UseCaseUserSave(userRepository, validator);
 const deleteUserById = new UseCaseDeleteUserById(userRepository);
 const updateUserById = new UseCaseUserUpdateById(userRepository,validator);
 

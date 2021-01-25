@@ -16,9 +16,8 @@ export class UseCaseDeleteRoleById extends BaseUseCase {
 
         const result = new ResultUseCase<Role>();
         const res  : DeleteResult = await this._roleRepository.delete({idrole : id});
-        console.log(res);
         if ( res.raw.affectedRows > 0 ){
-            result.SetData( 'Role ${id} deleted!', 200);
+            result.SetData( `Role ${id} deleted!`, 200);
             return result;
         }else{
             result.SetError( {message : "Can`t Delete", data : res},  404 );
