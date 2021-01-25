@@ -5,25 +5,29 @@ import { plainToClass } from 'class-transformer';
 import {UserDto} from "../../dtos/User.dto";
 import {validate, ValidationError} from "class-validator";
 import {UserRepository} from "../../../../../infraestructure/repositories/mysql/user.repository";
+import {ValidatorInterface} from "../../../../shared/validator/ValidatorInterface";
+import {Validator} from "../../../../shared/validator/Validator";
 
 export class UseCaseUserUpdateById extends BaseUseCase {
 
     private _userRepository : UserRepository;
-    constructor(userRepository :UserRepository )  {
+    private _validator : Validator;
+    constructor(userRepository :UserRepository, validator :Validator   )  {
         super();
         this._userRepository = userRepository;
+        this._validator = validator;
     }
 
     async Execute(  user : object , id : number) : Promise<ResultUseCase<User>>{
 
 
         let userBd = plainToClass(UserDto, user);
-        const isValid : ValidationError[] = await validate(userBd, {skipMissingProperties : true});
+        const isValid = await  this._validator.isValid(userBd)
 
         const result = new ResultUseCase<User>();
 
-        if (isValid.length != 0) {
-            result.SetError({message: "Can`t update user ", data: isValid}, 400);
+        if (isValid.status) {
+            result.SetError({message: "Can`t update user ", data: isValid.errors}, 400);
             return result;
         }
 

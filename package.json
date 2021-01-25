@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npm r dotenv/config; ts-node src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "typeorm": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.json",
     "build": "rimraf ./build &&  tsc ",
-    "up-db" : "docker-compose -f sql/docker-compose.yml up -d"
+    "up-db": "docker-compose -f sql/docker-compose.yml up -d"
   },
   "keywords": [],
   "author": "Cristian Nores",
@@ -24,14 +24,17 @@
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
     "reflect-metadata": "0.1.13",
-    "ts-node": "^9.1.1",
     "tsc": "^1.20150623.0",
     "typeorm": "^0.2.30"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.20",
     "@types/node": "13.13.4",
+    "babel-preset-es2015": "^6.24.1",
+    "jest": "^26.6.3",
     "rimraf": "3.0.2",
-    "ts-node": "8.10.2",
+    "ts-jest": "^26.4.4",
     "typescript": "^4.1.3"
   }
 }

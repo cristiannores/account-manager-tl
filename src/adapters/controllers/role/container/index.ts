@@ -1,10 +1,7 @@
-
-
+import {UseCaseGetAllRoles} from "../../../../application/useCases/rol/useCases/getAllRoles";
+import {UseCaseAddRole} from "../../../../application/useCases/rol/useCases/addRole";
 import {RoleRepository} from "../../../../infraestructure/repositories/mysql/role.repository";
-import {UseCaseGetAllRoles} from "../../../../application/modules/rol/useCases/getAllRoles";
-import {UseCaseAddRole} from "../../../../application/modules/rol/useCases/addRole";
-import {UseCaseDeleteRoleById} from "../../../../application/modules/rol/useCases/deleteRole";
-
+import {UseCaseDeleteRoleById} from "../../../../application/useCases/rol/useCases/deleteRole";
 
 const roleRepository = new RoleRepository();
 

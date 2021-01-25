@@ -16,9 +16,8 @@ export class UseCaseDeleteUserById extends BaseUseCase {
 
         const result = new ResultUseCase<User[]>();
         const res  : DeleteResult = await this._userRepository.delete({iduser : id});
-        console.log(res);
         if ( res.raw.affectedRows > 0 ){
-            result.SetData( 'User ${id} deleted!', 200);
+            result.SetData(  `User ${id} deleted!`, 200);
             return result;
         }else{
             result.SetError( {message : "Can`t Delete", data : res},  404 );

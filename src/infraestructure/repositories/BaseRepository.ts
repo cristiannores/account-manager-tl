@@ -1,8 +1,9 @@
 import { EntityTarget, FindOneOptions, FindManyOptions} from "typeorm";
 import {QueryDeepPartialEntity} from "typeorm/query-builder/QueryPartialEntity";
 import DatabaseClient, {DatabaseClientInterface} from '../persistence/index';
+import {BaseRepositoryInterface} from "./BaseRepositoryInterface";
 
-export class BaseRepository<T> {
+export class BaseRepository<T>  implements BaseRepositoryInterface<any>{
     _client: DatabaseClientInterface ;
     _entity: EntityTarget<T>;
     constructor(  ) {

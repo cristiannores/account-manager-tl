@@ -14,7 +14,8 @@
     ],
     "types": [
       "reflect-metadata",
-      "node"
+      "node",
+      "jest"
     ],
     "pretty": true,
     "target": "es5",
